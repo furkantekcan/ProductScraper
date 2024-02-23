@@ -15,17 +15,6 @@ class ProductScraper(scrapy.Spider):
 
     def parse(self, response):
         items = ProductscraperItem()
-
-        # all_div_quotes = response.css('div.quote')
-        #
-        # for quote in all_div_quotes:
-        #     title = quote.css('span.text::text').extract()
-        #     author = quote.css('.author::text').extract()
-        #
-        #     items['title'] = title
-        #     items['author'] = author
-        #
-        #     yield items
         root = ET.fromstring(response.body)
 
         # Iterate over each Product element
